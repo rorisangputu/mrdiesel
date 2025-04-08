@@ -3,6 +3,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
+import adminRoute from './routes/admin.route'
 
 //Initialising app
 const app = express();
@@ -18,9 +19,9 @@ app.use(cors({
 
 const PORT = process.env.PORT || 3000;
 
-app.use('/', async (req: Request, res: Response) => {
-    res.send({message: "Ollllaaaas"})
-})
+
+
+app.use('/api/admin', adminRoute);
 
 //App listener
 app.listen(PORT, () => {
